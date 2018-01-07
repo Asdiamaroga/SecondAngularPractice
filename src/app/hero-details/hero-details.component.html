@@ -1,0 +1,26 @@
+
+
+<div>
+  <div class="child-container">
+      <h3>Hero list</h3>
+  </div>
+
+  
+
+  <div class="child-container4">
+        <p class="description"> Please select the hero you wish to view: </p>
+        <p *ngFor="let currentHero of heroes" (click)="showHero(currentHero)" [class.selected]="currentHero === hero">
+            {{ currentHero.name }}
+        </p>
+  </div>
+
+  
+<div *ngIf="hero" class="child-container3">
+        <app-hero-details-directive [hero]="hero"></app-hero-details-directive>
+        <div class="child-container3">
+            <button class="btn-small btn-blue" type="button" (click)="goToEditPage()"> Edit Hero </button>
+        </div>
+</div>
+ 
+
+</div>

@@ -1,1 +1,148 @@
 /* You can add global styles to this file, and also import other style files */
+    
+$base-bg: rgb(80, 116, 131);
+$hovered-bg: #64a8a8;
+
+h1 {
+    color: #369;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 250%;
+}
+h2{
+    @extend %whiteFont;
+    font-size: 2em;
+}
+
+h3 {
+    color: #444;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+}
+body {
+    margin: 2em;
+}
+
+%fontsToBeUsed{
+    font-family: Cambria, Georgia;
+}
+
+%whiteFont{
+    color: rgb(249, 251, 252);
+}
+
+body{
+    @extend %fontsToBeUsed;
+    @extend %whiteFont;    
+    background-color: rgb(89, 130, 148);
+}
+input[text], button {
+    @extend %fontsToBeUsed;
+    @extend %whiteFont;    
+}
+
+h3 {
+    @extend %fontsToBeUsed;
+    @extend %whiteFont;    
+    font-size: 3em;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+  /* everywhere else */
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(238, 243, 245);
+}    
+
+
+.label{
+    background-color: rgb(118, 147, 177);
+    font-size: 1em;
+}
+
+
+@mixin button-bg($bg) {
+    background: $bg;
+    &:hover {
+      background:darken($bg,8%);
+      transition: all 0.3s ease;
+    }
+    &:active {
+      background:darken($bg,25%);
+    } 
+  }
+  
+%no-borders{
+    border-left: 0px;
+    border-top: 0px;
+    border-right: 0px;
+    border-bottom: 0px;
+}
+
+.btn {
+    @extend %no-borders;
+    color:white;
+    text-decoration:none;
+    padding:5px 10px;
+    border-radius:3px;
+    font-size:1.6em;
+}
+
+.btn-small {
+    @extend %no-borders;
+    color:white;
+    text-decoration:none;
+    padding:5px 10px;
+    border-radius:3px;
+    font-size:1em;
+}
+  
+.btn-blue {
+     @include button-bg( #64a8a8);
+}
+  
+.centerContainer{
+    text-align: center;
+}
+
+
+%margin-on-the-sides{
+    margin-left: 4%;
+    margin-right: 4%;
+}
+
+%container{
+    @extend %margin-on-the-sides;
+    padding: 2px 30px 20px 30px;
+    margin-top: 18px;
+}
+
+.child-container{
+    @extend %container;
+    background-color: $base-bg;
+    text-align: center;
+}
+
+.child-container2{
+    @extend %container;
+}
+
+.child-container3{
+    @extend %container;
+    background-color: $base-bg;
+    padding: 10px 10px 10px 10px;
+    
+}
+.child-container4{
+    @extend %container;
+    background-color: $base-bg;  
+    padding: 10px 4px 10px 4px; 
+}
+
+p{
+    @extend %margin-on-the-sides;
+    margin-top: 6px;
+    margin-bottom: 0px;
+    padding-left: 20px;
+    background-color: $hovered-bg; 
+}

@@ -1,0 +1,41 @@
+
+$hovered-bg: #64a8a8;
+
+.labelStyle {
+    background-color: $hovered-bg;
+    margin-top: 1px;
+    width: 10% !important;
+}
+
+
+.gridLayout {
+    display: gird;
+    grid-gap: 4px;
+    grid-template-columns: repeat(2, auto);
+}
+
+input {
+    width: 10% !important;
+}
+
+%tableDataWidtg {
+    width: 200px !important;
+}
+
+.tdWidth{
+    @extend %tableDataWidtg;
+    padding-left: 10px;
+}
+
+td {
+    @extend %tableDataWidtg;
+}
+
+input {
+    @extend %tableDataWidtg;
+    background-color: #87d1d1;
+    border-top: 0px;
+    border-bottom: 0px;
+    border-left: 0px;
+    border-right: 0px;
+}

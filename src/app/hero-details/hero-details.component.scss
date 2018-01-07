@@ -1,0 +1,46 @@
+$base-bg: rgb(80, 116, 131);
+$hovered-bg: #64a8a8;
+
+
+%margin-on-the-sides{
+    margin-left: 4%;
+    margin-right: 4%;
+}
+
+%container{
+    @extend %margin-on-the-sides;
+    padding: 2px 30px 20px 30px;
+    margin-top: 18px;
+}
+
+.child-container{
+    @extend %container;
+    background-color: $base-bg;
+    text-align: center;
+}
+
+.child-container2{
+    @extend %container;
+}
+
+p{
+    @extend %margin-on-the-sides;
+    margin-top: 6px;
+    margin-bottom: 0px;
+    padding-left: 20px;
+    background-color: $hovered-bg; 
+}
+
+.selected {
+    background-color: #CFD8DC !important;
+    color: white;
+}
+
+.description{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    border-left: 0px !important;
+    border-right: 0px !important;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}

@@ -1,0 +1,16 @@
+$base-bg: rgb(80, 116, 131);
+
+
+%margin-on-the-sides{
+    margin-left: 4%;
+    margin-right: 4%;
+}
+
+%container{
+    @extend %margin-on-the-sides;
+    padding: 2px 30px 0px 30px;
+}
+
+.child-container-dir{
+    @extend %container;
+}

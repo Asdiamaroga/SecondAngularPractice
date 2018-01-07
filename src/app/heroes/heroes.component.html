@@ -1,0 +1,13 @@
+<div class="centerContainer child-container3">
+    <h2>
+        Top Heroes
+    </h2>
+
+    <div class="gridContainer">
+        <div *ngFor="let topHero of topFourHeroes">
+            <p class="btn btn-blue" (click)="goToEditPage(topHero.id)">{{ topHero.name }}</p>
+        </div>
+         
+    </div>
+
+</div>
