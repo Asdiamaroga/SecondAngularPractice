@@ -11,8 +11,8 @@ import { HeroServiceService } from '../hero-service.service';
 export class HeroDetailsComponent implements OnInit {
 
   heroes :Hero[]
-
   hero :Hero;
+  
 
   constructor(private router :Router, private heroService: HeroServiceService) { }
 

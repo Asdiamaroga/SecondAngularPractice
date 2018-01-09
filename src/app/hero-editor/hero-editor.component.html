@@ -1,29 +1,30 @@
 
 <div class="child-container4">
     <p>The users info :</p>
-    <form>
+    
         <div class="child-container4">
             <table>
                 <tr>
                     <td class="labelStyle"><div class="tdWidth">Id :</div></td>
-                    <td><input type="text"></td>
+                    <td><input type="text" [(ngModel)]="heroToBeEdited.id"></td>
                 </tr>
                 <tr>
                     <td class="labelStyle"><div class="tdWidth">Name :</div></td>
-                    <td><input type="text" ></td>
+                    <td><input type="text" [(ngModel)]="heroToBeEdited.name"></td>
                 </tr>
                 <tr>
                     <td class="labelStyle"><div class="tdWidth">Power :</div></td>
-                    <td><input type="text"  ></td> 
+                    <td><input type="text" [(ngModel)]="heroToBeEdited.power"></td> 
                 </tr>
             </table>
         </div>
-        {{ randomText }}
 
-        <app-hero-details-directive [hero]="heroToBeEdited"></app-hero-details-directive>
         
-        <div class="child-container4">
-          <button class="btn-small btn-blue" type="button" > Save </button>
+        <div *ngIf="heroToBeEdited">
+            <app-hero-details-directive [hero]="originalHero" [labelText]="heroOverViewLabelText"></app-hero-details-directive>
         </div>
-    </form>
+        <div class="child-container4">
+          <button class="btn-small btn-blue" type="button" (click)="saveHeroChanges()"> Save </button>
+        </div>
+    
 </div>

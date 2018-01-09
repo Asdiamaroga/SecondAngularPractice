@@ -14,9 +14,6 @@ $hovered-bg: #64a8a8;
     grid-template-columns: repeat(2, auto);
 }
 
-input {
-    width: 10% !important;
-}
 
 %tableDataWidtg {
     width: 200px !important;
@@ -38,4 +35,5 @@ input {
     border-bottom: 0px;
     border-left: 0px;
     border-right: 0px;
+    width: 10% !important;
 }

@@ -10,6 +10,7 @@ import { Hero } from '../hero';
 
 export class HeroDetailsDirectiveComponent implements OnInit {
 
+  @Input() labelText :string = "Hero Details:"
   @Input() hero: Hero;
 
   constructor() { }

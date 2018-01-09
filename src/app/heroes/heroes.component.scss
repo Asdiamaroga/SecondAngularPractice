@@ -13,6 +13,10 @@ $hovered-bg: #64a8a8;
     margin-top: 18px;
 }
 
+%tableDataWidtg {
+    width: 200px !important;
+}
+
 .child-container{
     @extend %container;
     background-color: $base-bg;
@@ -40,4 +44,15 @@ p{
     display: grid;
     grid-gap: 4px;
     grid-template-columns: repeat(4, auto);
+}
+
+input {
+    @extend %tableDataWidtg;
+    background-color: #87d1d1;
+    border-top: 0px;
+    border-bottom: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    width: 10% !important;
+    margin-left: 4% !important;
 }

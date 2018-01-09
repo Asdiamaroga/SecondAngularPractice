@@ -4,20 +4,27 @@ import { HEROES } from './mock-heroes';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { MessageService } from './message.service'
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class HeroServiceService {
 
-  constructor(private messageService :MessageService) { }
+  private _heroesUrl = 'api/HEROES'; 
+  private _cashedHeroesData = [];
 
-  getHeroes(): Observable<Hero[]>{
+
+  constructor(private messageService :MessageService, private http: HttpClient) { }
+
+  getHeroes() :Observable<Hero[]>{
     this.sendSystemMessage("Hearoes READ")
-    return of(HEROES)
+    let streamOfData :Observable<Hero[]> = this.http.get<Hero[]>(this._heroesUrl)
+    streamOfData.subscribe( returnedHeroes => this._cashedHeroesData = returnedHeroes)
+    return streamOfData
   }
 
-  getHeroWithId(id :number){
+  getHeroWithId(id :number) :Observable<Hero>{
     this.sendSystemMessage("Retrieved :" + id)
-    return HEROES.find( (hero => hero.id == id) )
+    return of(this._cashedHeroesData.find( hero => hero.id == id ))
   }
 
   private sendSystemMessage(message :string){

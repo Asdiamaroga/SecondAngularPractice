@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Hero } from '../hero';
 import { HeroServiceService } from '../hero-service.service';
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-hero-editor',
@@ -10,23 +11,31 @@ import { HeroServiceService } from '../hero-service.service';
 })
 export class HeroEditorComponent implements OnInit {
 
-  private _originalHero :Hero
-  heroToBeEdited :Hero = {
-      id: 0,
-      name: "",
-      power: 0
-  }
+  originalHero :Hero
+  heroToBeEdited :Hero
   randomText :string = ""
+  heroOverViewLabelText = "Original Hero information: "
  
 
-  constructor(private activatedRoute :ActivatedRoute, private heroService :HeroServiceService) { }
+  constructor(private activatedRoute :ActivatedRoute, 
+              private heroService :HeroServiceService, 
+              private locationService :Location) { }
 
   ngOnInit() {
       this.activatedRoute.params.subscribe( res => {
-              this._originalHero = this.heroService.getHeroWithId(res.id)
-              this.heroToBeEdited =  Object.assign({}, this._originalHero)
+              this.heroService.getHeroWithId(res.id).subscribe( returnedHero => {
+                  this.originalHero = returnedHero
+                  this.heroToBeEdited =  Object.assign({}, this.originalHero)
+                }
+              )           
          }
       )
   }
 
+  saveHeroChanges() {
+      this.locationService.back()
+      this.originalHero.id = this.heroToBeEdited.id
+      this.originalHero.name = this.heroToBeEdited.name
+      this.originalHero.power = this.heroToBeEdited.power
+  }
 }

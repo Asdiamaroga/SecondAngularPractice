@@ -139,6 +139,13 @@ h3 {
     padding: 10px 4px 10px 4px; 
 }
 
+.child-container5{
+    @extend %container;
+    background-color: $base-bg;  
+    margin-top: 20px;
+    padding: 10px 4px 10px 4px; 
+}
+
 p{
     @extend %margin-on-the-sides;
     margin-top: 6px;
