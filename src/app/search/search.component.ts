@@ -37,6 +37,8 @@ export class SearchComponent implements OnInit {
   }
 
   goToEditPage(hero :Hero) {
-    this.router.navigate(['/HeroEdit/' + hero.id])
+    console.log(hero)
+
+    //this.router.navigate(['/HeroEdit/' + hero.id])
   }
 }

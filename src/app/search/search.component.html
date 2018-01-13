@@ -3,7 +3,7 @@
 
 <div class="child-container5">
   <p>Search bar: </p>
-  <input #searchBox id="searchBox" type="text" [(ngModel)]="searchTerm" (keyup)="searchForHeroes(searchBox.value)">
+  <input #searchBox id="searchBox" type="text" (keyup)="searchForHeroes(searchBox.value)">
 </div>
 
 <p *ngFor="let hero of resultList$ | async" (click)="goToEditPage(hero)">

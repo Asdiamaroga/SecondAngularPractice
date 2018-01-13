@@ -29,7 +29,6 @@ export class HeroEditorComponent implements OnInit {
       this.activatedRoute.params.subscribe( res => {
               if(res.id == 'New'){
                 this.creatingNewHero = true
-                window.alert("OK")
               } else {
                 this.heroService.getHeroWithId(res.id).subscribe( returnedHero => {
                     this.originalHero = returnedHero
