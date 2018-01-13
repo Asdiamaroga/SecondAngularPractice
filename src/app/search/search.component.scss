@@ -1,0 +1,17 @@
+
+
+%tableDataWidtg {
+    width: 200px !important;
+}
+
+
+input {
+    @extend %tableDataWidtg;
+    background-color: #87d1d1;
+    border-top: 0px;
+    border-bottom: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    width: 10% !important;
+    margin-left: 4% !important;
+}

@@ -2,7 +2,7 @@
   {{ labelText }}
 </p>
 
-<div class="child-container-dir">
+<div class="child-container-dir" *ngIf="hero">
     <p>Hero id: {{ hero.id }}</p>
     <p>Hero name: {{ hero.name }}</p>
     <p>Hero power: {{ hero.power }}</p>

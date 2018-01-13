@@ -28,6 +28,16 @@ export class HeroDetailsComponent implements OnInit {
     this.router.navigate(['/HeroEdit/' + this.hero.id])
   }
 
+  goAndAddNewHero(){
+    this.router.navigate(['/HeroEdit/New'])
+  }
+
+  deleteHero() {
+    if(this.hero) {
+      this.heroService.deleteHero(this.hero).subscribe( _ => this.initHeroes() )
+    }
+  }
+
   showHero(toShowHero :Hero){
     this.hero = toShowHero
   }

@@ -12,6 +12,10 @@
         <p *ngFor="let currentHero of heroes" (click)="showHero(currentHero)" [class.selected]="currentHero === hero">
             {{ currentHero.name }}
         </p>
+        <div class="child-container3">
+            <button class="btn-small btn-blue" type="button" (click)="goAndAddNewHero()"> Add Hero </button>
+            <button class="btn-small btn-blue" type="button" (click)="deleteHero()"> Delete Hero </button>
+        </div>
   </div>
 
   

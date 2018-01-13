@@ -9,7 +9,7 @@ export class InMemoryDataService implements InMemoryDbService {
 
   createDb() {
 
-    const HEROES: Hero[] = [
+    let HEROES: Hero[] = [
       { id: 11, name: 'Mr. Nice', power: 1},
       { id: 12, name: 'Narco', power: 2},
       { id: 13, name: 'Bombasto', power: 3},

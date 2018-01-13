@@ -12,8 +12,12 @@ import { Location } from '@angular/common'
 export class HeroEditorComponent implements OnInit {
 
   originalHero :Hero
-  heroToBeEdited :Hero
-  randomText :string = ""
+  heroToBeEdited :Hero = {
+    id:0,
+    power: 0,
+    name: ""
+  }
+  creatingNewHero :boolean
   heroOverViewLabelText = "Original Hero information: "
  
 
@@ -23,19 +27,30 @@ export class HeroEditorComponent implements OnInit {
 
   ngOnInit() {
       this.activatedRoute.params.subscribe( res => {
-              this.heroService.getHeroWithId(res.id).subscribe( returnedHero => {
-                  this.originalHero = returnedHero
-                  this.heroToBeEdited =  Object.assign({}, this.originalHero)
-                }
-              )           
+              if(res.id == 'New'){
+                this.creatingNewHero = true
+                window.alert("OK")
+              } else {
+                this.heroService.getHeroWithId(res.id).subscribe( returnedHero => {
+                    this.originalHero = returnedHero
+                    this.heroToBeEdited =  Object.assign({}, this.originalHero)
+                  }
+                )           
+              }
+              
          }
       )
   }
 
   saveHeroChanges() {
-      this.locationService.back()
-      this.originalHero.id = this.heroToBeEdited.id
-      this.originalHero.name = this.heroToBeEdited.name
-      this.originalHero.power = this.heroToBeEdited.power
+      let eventStream;
+      if(this.creatingNewHero){
+        eventStream = this.heroService.addhero(this.heroToBeEdited)
+      } else {
+        eventStream = this.heroService.updateHero(this.heroToBeEdited)
+      }
+      eventStream.subscribe( _ =>
+        this.locationService.back()
+      )
   }
 }

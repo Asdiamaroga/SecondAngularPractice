@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
+import {  } from '@angular/animations/';
 import { HeroServiceService } from './hero-service.service';
 import { MessageService } from './message.service'
 import { HttpClientModule } from '@angular/common/http'
@@ -17,6 +18,7 @@ import { HeroEditorComponent } from './hero-editor/hero-editor.component';
 import { HeroDetailsComponent } from './hero-details/hero-details.component';
 import { HeroDetailsDirectiveComponent } from './hero-details-directive/hero-details-directive.component';
 import { MessageComponent } from './message/message.component';
+import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import { MessageComponent } from './message/message.component';
     HeroEditorComponent,
     HeroDetailsComponent,
     HeroDetailsDirectiveComponent,
-    MessageComponent
+    MessageComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
